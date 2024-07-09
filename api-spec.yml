@@ -30,8 +30,14 @@ components:
           description: Time at which post was created
 
 paths:
-  /timeline/{id}:
+  /timeline/{userId}:
     get:
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
       summary: Retrieve a list of posts from public and friends
       responses:
         '200':
