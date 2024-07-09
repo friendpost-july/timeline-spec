@@ -1,37 +1,14 @@
 REDIS STRUCTURE
 Key - Value
 [
-<user_id> ---> [list of posts]
+<user_id> ---> {updatedAt, listOfPosts}
 ]
  
  
 Note:
 How timeline is generated
  
-User creation
-Once user is created, user timeline should be created consisting of public posts
- 
-user deletion
-delete the timeline
- 
-User friend request approved
-Once new connection is created. Timeline should be updated for both users
- 
-user unfriend
-Once users unfriend, Timeline should be updated for both users
- 
-New post creation
-Once new post is created, we need to update time based on conditions
-if post is public, update timeline for every user
-if post is private, update timeline for frinds of post creator
- 
-Post modification
-Same as post creation
- 
-Post deletion
-Same as post creation
- 
- 
+
 At the time of api request if userId is not present as key in redis cache, check user management and recompute timeline and store is cache
  
  
@@ -43,5 +20,6 @@ Other service Dependencies
     - get list of friends for perticular user
         > list of friends ids
 3. Posts service
-    - get all posts of perticular user
+    - get all the lates public posts
+    - get all posts based on ids
         > list of posts with details(id, createdAt, publicFlag, content)

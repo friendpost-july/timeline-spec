@@ -13,20 +13,24 @@ components:
       required:
         - userId
         - data
-        - date-time
+        - createdAt
+        - updateAt
       properties:
-        id:
+        userId:
           type: string
           description: Unique ID for each userId
-        data:
+        content:
           type: string
           description: Text data posted by userId
         createdAt:
           type: string
           description: Time at which post was created
+        updatedAt:
+          type: string
+          description: Time at which post was created
 
 paths:
-  /user/{id}:
+  /timeline/{id}:
     get:
       summary: Retrieve a list of posts from public and friends
       responses:
