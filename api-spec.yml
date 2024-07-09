@@ -1,0 +1,40 @@
+openapi: '3.0.3'
+info:
+  title: Timeline Spec
+  version: '1.0'
+servers:
+  - url: https://friendpost/v1/timeline
+    description: API to use timeline
+
+components:
+  schemas:
+    Post:
+      type: object
+      required:
+        - userId
+        - data
+        - date-time
+      properties:
+        id:
+          type: string
+          description: Unique ID for each userId
+        data:
+          type: string
+          description: Text data posted by userId
+        date-time:
+          type: string
+          description: Time at which post was created
+
+paths:
+  /user:
+    get:
+      summary: Retrieve a list of posts from public and friends
+      responses:
+        '200':
+          description: A list of posts]
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '/#components/schemas/Post'
