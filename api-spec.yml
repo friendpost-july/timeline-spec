@@ -18,10 +18,16 @@ components:
       properties:
         userId:
           type: string
-          description: Unique ID for each userId
+          description: Unique ID for each User
+        userName:
+          type: string
+          description: User Name for the User ID
         content:
           type: string
           description: Text data posted by userId
+        postId:
+          type: string
+          description: Id of the Post
         createdAt:
           type: string
           description: Time at which post was created
@@ -48,8 +54,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Post"
-        '400':
-          description: Bad Request
+        '404':
+          description: User Not Found
         '500':
           description: Internal Server Error
               
